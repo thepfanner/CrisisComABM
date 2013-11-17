@@ -1,0 +1,24 @@
+        random_shelter_food = random.random()
+        random_medical = random.random()
+
+
+                    if self.civilians[i].pos_x in self.my_crisis.wave1_range_x and \
+               self.civilians[i].pos_y in self.my_crisis.wave1_range_y:            # check if civilian is within wave 1
+                self.civilians[i].crisis_affected(self.my_crisis.strength, 1)
+            elif self.civilians[i].pos_x in self.my_crisis.wave2_range_x and \
+                self.civilians[i].pos_y in self.my_crisis.wave2_range_y and \
+                self.civilians[i].pos_x not in self.my_crisis.wave1_range_x and \
+                self.civilians[i].pos_y not in self.my_crisis.wave1_range_y:        # check if civilian is within wave 2
+                self.civilians[i].crisis_affected(self.my_crisis.strength, 2)
+            elif self.civilians[i].pos_x in self.my_crisis.wave3_range_x and \
+                self.civilians[i].pos_y in self.my_crisis.wave3_range_y and \
+                self.civilians[i].pos_x not in self.my_crisis.wave1_range_x and \
+                self.civilians[i].pos_y not in self.my_crisis.wave1_range_y and \
+                self.civilians[i].pos_x not in self.my_crisis.wave2_range_x and \
+                self.civilians[i].pos_y not in self.my_crisis.wave2_range_y:
+                self.civilians[i].crisis_affected(self.my_crisis.strength, 3)
+            else:
+                self.civilians[i].alive = True
+                self.civilians[i].shelter = False
+                self.civilians[i].food = False
+                self.civilians[i].medical = False
