@@ -23,10 +23,10 @@ class Crisis:
         self.wave3_range_y = range(self.center_y - self.wave1 - self.wave2 - self.wave3,
                                    self.center_y + self.wave1 + self.wave2 + self.wave3)
 
-        self.prob = np.array([[[0.9, 0.8, 0.7], [0.5, 0.25, 0.1], [0.2, 0.05, 0.001]],     # Probability for being alive
-                              [[0.8, 0.6, 0.5], [0.5, 0.4, 0.3], [0.3, 0.2, 0.05]],        # Probability for having shelter
-                              [[0.8, 0.65, 0.55], [0.4, 0.2, 0.2], [0.2, 0.1, 0.01]],      # Probability for needing medical support
-                              [[0.85, 0.5, 0.45], [0.7, 0.5, 0.3], [0.3, 0.2, 0.1]]])      # Probability for having food
+        self.prob = np.array([[[0.9, 0.8, 0.7], [0.2, 0.25, 0.1], [0.2, 0.05, 0.001]],     # Probability for being alive
+                              [[0.999, 0.8, 0.7], [0.999, 0.8, 0.7], [0.2, 0.1, 0.05]],        # Probability for having shelter
+                              [[0.8, 0.65, 0.55], [0.9, 0.7, 0.6], [0.2, 0.1, 0.01]],      # Probability for needing medical support
+                              [[0.85, 0.5, 0.45], [0.85, 0.8, 0.7], [0.3, 0.2, 0.1]]])      # Probability for having food
 
     def crisis_affect(self, type, pos_x, pos_y):
         luck = random.random()
@@ -52,11 +52,13 @@ class Crisis:
 
 class CrisisInformation:
     """ Class for crisis information at a specific geographic location  """
-    def __init__(self):
+    def __init__(self, pos_x=0, pos_y=0, dead=False, shelter=False, medical=False, food=True, time=0):
         self.pos_x = pos_x
         self.pos_y = pos_y
         self.dead = dead
         self.shelter = shelter
-        self.food = food
         self.medical = medical
+        self.food = food
         self.sources = []
+        self.time = time
+        self.type = type
