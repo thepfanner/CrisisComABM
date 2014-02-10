@@ -1,4 +1,5 @@
 from Crisis import *
+from classes import *
 
 class Civilian:
     """ Class for civilian agents """
@@ -67,10 +68,16 @@ class Responder():
         self.information_pass_up = []
         self.information_rcvd_high = []
         self.information_pass_down = []
-        self.new_info_rcvd = False
+        self.new_info_rcvd_low = False
+        self.new_info_rcvd_high = False
         self.new_info_to_pass_up = False
         self.new_info_to_pass_down = False
         self.process_capacity = random.randint(12,30)
+        self.count_incoming_low = 0
+
+        self.deploy_position = Location(0,0)
+        self.deploy_range = 0
+        self.can_deploy_instant = False
 
         self.c_shelter = self.c_medical = self.c_food = self.c_logistic = False
         self.r_shelter = self.r_medical = self.r_food = self.r_logistic = 0
@@ -89,15 +96,19 @@ class Responder():
             self.c_logistic = True
             self.r_logistic = random.randint(0,100)
 
-        # set time needed to deploy capability
+        # set capabilities depending on level
         if self.level == 0:
             self.time_to_deploy = random.randint(5,10)
         elif self.level == 1:
             self.time_to_deploy = random.randint(4,10)
         elif self.level == 2:
-            self.time_to_deploy = random.randint(3,10)
+            if random.random() < 0.400:
+                self.can_deploy_instant = True
+                self.time_to_deploy = random.randint(3,10)
         else:
-            self.time_to_deploy = random.randint(1,5)
+            if random.random() < 0.900:
+                self.can_deploy_instant = True
+                self.time_to_deploy = random.randint(1,5)
 
         # set local emergency
         if self.level == 0 and random.random() < 0.001:
