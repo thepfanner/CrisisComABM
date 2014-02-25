@@ -1,24 +1,422 @@
-        random_shelter_food = random.random()
-        random_medical = random.random()
+    # ###########################################
+    # Methods FOR FULL INFORMATION SHARING
+    #
+    #
+    def civilian_to_responder_full(self):
+        for i in range(len(self.civ)):
+            if self.civ[i].dead is False and random.random() < 0.99:
+                if self.civ[i].shelter is True or self.civ[i].medical is True or self.civ[i].food is True:
+                    # randomly choose emergency contact
+                    em_contact = self.local_em[random.randint(0, len(self.local_em)-1)]
+
+                    #share information with emergency contact - creating Information instance
+                    self.rs[em_contact].information_rcvd_low.append(Information(self.civ[i].id, self.civ[i].position,
+                                                                                self.civ[i].shelter, self.civ[i].medical,
+                                                                                self.civ[i].food, False))
+                    self.rs[em_contact].new_info_rcvd_low = True
+
+                    #print("Civilian %d sent information to Responder %d" % (self.civ[i].id, self.rs[em_contact].id))
+                    if self.civ[i].shelter:
+                        self.civ_list_shelter.append(self.civ[i])
+                    if self.civ[i].food:
+                        self.civ_list_food.append(self.civ[i])
+                    #    self.count_civ_message_food += 1
+                    if self.civ[i].medical:
+                        self.civ_list_medical.append(self.civ[i])
+                    #    self.count_civ_message_medical += 1
+
+                    self.count_civ_message_total += 1
+
+    def responder_to_responder_full(self):
+        """
+        @return: organisation shares information with ties
+        """
+        for i in xrange(len(self.rs)-1, -1, -1):
+            if self.rs[i].new_info_to_pass_up is True:
+                for j in range(len(self.rs[i].ties_up)):
+                    self.rs[self.rs[i].ties_up[j]].information_rcvd_low.extend(self.rs[i].information_pass_up)
+                    self.rs[self.rs[i].ties_up[j]].new_info_rcvd_low = True
+                    self.rs[i].new_info_to_pass_up = False
+                    #print("UP: Responder %d sent information to Responder %d" % (self.rs[i].id, self.rs[self.rs[i].ties_up[j]].id))
+                self.rs[i].information_pass_up = []
+
+            if self.rs[i].new_info_to_pass_down is True:
+                for j in range(len(self.rs[i].ties_down)):
+                    self.rs[self.rs[i].ties_down[j]].information_rcvd_high.extend(self.rs[i].information_pass_down)
+                    self.rs[self.rs[i].ties_down[j]].new_info_rcvd_high = True
+                    self.rs[i].new_info_to_pass_down = False
+                    #print("DOWN: Responder %d sent information to Responder %d" % (self.rs[i].id, self.rs[self.rs[i].ties_down[j]].id))
+                self.rs[i].information_pass_down = []
+
+    def process_information_full(self):
+        """
+        @return: process information for sharing. Process received information constrained by capacity
+        """
+        for i in range(len(self.rs)):
+            # check if new information available for processing upstream
+            if self.rs[i].new_info_rcvd_low is True:
+                if self.rs[i].id is 0:
+                    for j in range(self.rs[i].process_capacity):
+                        if len(self.rs[i].information_rcvd_low) > 0:
+                            #print("I %d processed information for passing down" % (self.rs[i].id))
+                            self.rs[i].information_pass_down.append(self.rs[i].information_rcvd_low[0])
+                            self.rs[i].information_rcvd_low.pop(0)
+                            self.rs[i].new_info_to_pass_down = True
+                            self.rs[i].count_incoming_low += 1
+                    if len(self.rs[i].information_rcvd_low) == 0:
+                        self.rs[i].new_info_rcvd_low = False
+                else:
+                    for j in range(self.rs[i].process_capacity):
+                        # process information given capacity constraint
+                        if len(self.rs[i].information_rcvd_low) > 0:
+                            self.rs[i].information_pass_up.append(self.rs[i].information_rcvd_low[0])
+                            self.rs[i].information_rcvd_low.pop(0)
+                            self.rs[i].new_info_to_pass_up = True
+                            if len(self.rs[i].information_rcvd_low) is 0:
+                                self.rs[i].new_info_rcvd_low = False
+                        #print("Responder %d activated information to pass on - remaining information = %d" % (self.rs[i].id, len(self.rs[i].information_rcvd_low)))
+
+            # process information for sending to lower level ties
+            if self.rs[i].new_info_rcvd_high is True and self.rs[i].level is not self.levels-1:
+                for j in range(self.rs[i].process_capacity):
+                    if len(self.rs[i].information_rcvd_high) > 0:
+                        self.rs[i].information_pass_down.append(self.rs[i].information_rcvd_high[0])
+                        self.rs[i].information_rcvd_high.pop(0)
+                        self.rs[i].new_info_to_pass_down = True
+                    elif len(self.rs[i].information_rcvd_high) == 0:
+                        self.rs[i].new_info_rcvd_high = False
 
 
-                    if self.civilians[i].pos_x in self.my_crisis.wave1_range_x and \
-               self.civilians[i].pos_y in self.my_crisis.wave1_range_y:            # check if civilian is within wave 1
-                self.civilians[i].crisis_affected(self.my_crisis.strength, 1)
-            elif self.civilians[i].pos_x in self.my_crisis.wave2_range_x and \
-                self.civilians[i].pos_y in self.my_crisis.wave2_range_y and \
-                self.civilians[i].pos_x not in self.my_crisis.wave1_range_x and \
-                self.civilians[i].pos_y not in self.my_crisis.wave1_range_y:        # check if civilian is within wave 2
-                self.civilians[i].crisis_affected(self.my_crisis.strength, 2)
-            elif self.civilians[i].pos_x in self.my_crisis.wave3_range_x and \
-                self.civilians[i].pos_y in self.my_crisis.wave3_range_y and \
-                self.civilians[i].pos_x not in self.my_crisis.wave1_range_x and \
-                self.civilians[i].pos_y not in self.my_crisis.wave1_range_y and \
-                self.civilians[i].pos_x not in self.my_crisis.wave2_range_x and \
-                self.civilians[i].pos_y not in self.my_crisis.wave2_range_y:
-                self.civilians[i].crisis_affected(self.my_crisis.strength, 3)
+ ##################################################
+
+ def process_information(self):
+        """
+        Process information all responding agencies have received in the last
+        time-step. Where possible, immediately deploy help. Otherwise look in
+        network for potential help
+
+        """
+
+        # process each responder
+        for i in range(len(self.rs)):
+            tmp_list_helped = []
+            tmp_list_helped_shelter = []
+            tmp_list_helped_medical = []
+            tmp_list_helped_food = []
+
+            # check if new information has been received from civilian
+            if self.rs[i].new_info_rcvd_civ is True:
+                for j in range(len(self.rs[i].information_rcvd_civ)):
+                    if len(self.rs[i].information_rcvd_civ) > 0:
+                        if self.rs[i].information_rcvd_civ[j].shelter is True:
+                            self.rs[i].information_pass_up_shelter.append(self.rs[i].information_rcvd_civ[0])
+                            self.rs[i].new_info_to_pass_up_shelter = True
+                            print("do shelter %d    source: %d" % (j, self.rs[i].information_rcvd_civ[0].source))
+
+                        if self.rs[i].information_rcvd_civ[j].medical is True:
+                            self.rs[i].information_pass_up_medical.append(self.rs[i].information_rcvd_civ[0])
+                            self.rs[i].new_info_to_pass_up_medical = True
+                            print("do medical %d    source: %d" % (j, self.rs[i].information_rcvd_civ[0].source))
+
+                        if self.rs[i].information_rcvd_civ[j].food is True:
+                            print("do food %d    source: %d" % (j, self.rs[i].information_rcvd_civ[0].source))
+                            self.rs[i].information_pass_up_food.append(self.rs[i].information_rcvd_civ[0])
+                            self.rs[i].new_info_to_pass_up_food = True
+
+                        #if self.rs[i].information_rcvd_civ[j].shelter is False and self.rs[i].information_rcvd_civ[j].medical is False\
+                        #    and self.rs[i].information_rcvd_civ[j].food is False:
+                        #    print("UNKNOWN CIVILIAN NEED: civ_id %d" % self.rs[i].information_rcvd_civ[0].source)
+
+                self.rs[i].new_info_rcvd_civ = False
+                self.rs[i].information_rcvd_civ = []
+
+            # check if new information available for processing upstream
+            # for central unit information received from lower level ties, is processes and prepared to forward to responder that can deploy at location
+            if self.rs[i].id is 0:
+                if self.rs[i].new_info_rcvd_low_shelter is True:
+                    for j in range(len(self.rs[i].information_rcvd_low_shelter)):
+                        if self.__check_network(self.rs[i].deploy_network, self.rs[i].information_rcvd_low_shelter[j]):
+                            self.rs[i].information_pass_down_shelter.append(self.rs[i].information_rcvd_low_shelter[j])
+                            self.rs[i].new_info_to_pass_down_shelter = True
+                            tmp_list_helped_shelter.append(j)
+                            print("SHELTER NETWORK HELP FOUND @0: me_id %d --- civ_id %d - needed %r %r %r" % (self.rs[i].id, self.rs[i].information_rcvd_low_shelter[j].source, self.rs[i].information_rcvd_low_shelter[j].shelter, self.rs[i].information_rcvd_low_shelter[j].medical, self.rs[i].information_rcvd_low_shelter[j].food))
+                        else:
+                            print("SHELTER @0 - NO NETWORK HELP FOUND FOR: civ_id %d" % self.rs[i].information_rcvd_low_shelter[j].source)
+
+                if self.rs[i].new_info_rcvd_low_medical is True:
+                    for j in range(len(self.rs[i].information_rcvd_low_medical)):
+                        if self.__check_network(self.rs[i].deploy_network, self.rs[i].information_rcvd_low_medical[j]):
+                            self.rs[i].information_pass_down_medical.append(self.rs[i].information_rcvd_low_medical[j])
+                            self.rs[i].new_info_to_pass_down_medical = True
+                            tmp_list_helped_medical.append(j)
+                            print("SHELTER NETWORK HELP FOUND @0: me_id %d --- civ_id %d - needed %r %r %r" % (self.rs[i].id, self.rs[i].information_rcvd_low_medical[j].source, self.rs[i].information_rcvd_low_medical[j].shelter, self.rs[i].information_rcvd_low_medical[j].medical, self.rs[i].information_rcvd_low_medical[j].food))
+                        else:
+                            print("SHELTER @0 - NO NETWORK HELP FOUND FOR: civ_id %d" % self.rs[i].information_rcvd_low_medical[j].source)
+
+                if self.rs[i].new_info_rcvd_low_food is True:
+                    for j in range(len(self.rs[i].information_rcvd_low_food)):
+                        if self.__check_network(self.rs[i].deploy_network, self.rs[i].information_rcvd_low_food[j]):
+                            self.rs[i].information_pass_down_food.append(self.rs[i].information_rcvd_low_food[j])
+                            self.rs[i].new_info_to_pass_down_food = True
+                            tmp_list_helped_food.append(j)
+                            print("SHELTER NETWORK HELP FOUND @0: me_id %d --- civ_id %d - needed %r %r %r" % (self.rs[i].id, self.rs[i].information_rcvd_low_food[j].source, self.rs[i].information_rcvd_low_food[j].shelter, self.rs[i].information_rcvd_low_food[j].medical, self.rs[i].information_rcvd_low_food[j].food))
+                        else:
+                            print("SHELTER @0 - NO NETWORK HELP FOUND FOR: civ_id %d" % self.rs[i].information_rcvd_low_food[j].source)
+
+                # for other responders (not center) information from lower level is prepared to forward to next higher level
             else:
-                self.civilians[i].alive = True
-                self.civilians[i].shelter = False
-                self.civilians[i].food = False
-                self.civilians[i].medical = False
+                if self.rs[i].new_info_rcvd_low_shelter is True:
+                    print("%d process shelter" % i)
+                    for j in range(len(self.rs[i].information_rcvd_low_shelter)):
+                        if j < self.rs[i].process_capacity:
+                            self.rs[i].information_pass_up_shelter.append(self.rs[i].information_rcvd_low_shelter[0])
+                            self.rs[i].information_rcvd_low_shelter.pop(0)
+                            self.rs[i].new_info_to_pass_up_shelter = True
+                            if len(self.rs[i].information_rcvd_low_shelter) is 0:
+                                self.rs[i].new_info_rcvd_low_shelter = False
+                                break
+                        else:
+                            break
+                if self.rs[i].new_info_rcvd_low_medical is True:
+                    for j in range(len(self.rs[i].information_rcvd_low_medical)):
+                        if j < self.rs[i].process_capacity:
+                            self.rs[i].information_pass_up_medical.append(self.rs[i].information_rcvd_low_medical[0])
+                            self.rs[i].information_rcvd_low_medical.pop(0)
+                            self.rs[i].new_info_to_pass_up_medical = True
+                            if len(self.rs[i].information_rcvd_low_medical) is 0:
+                                self.rs[i].new_info_rcvd_low_medical = False
+                                break
+                        else:
+                            break
+
+                if self.rs[i].new_info_rcvd_low_food is True:
+                    for j in range(len(self.rs[i].information_rcvd_low_food)):
+                        if j < self.rs[i].process_capacity:
+                            self.rs[i].information_pass_up_food.append(self.rs[i].information_rcvd_low_food[0])
+                            self.rs[i].information_rcvd_low_food.pop(0)
+                            self.rs[i].new_info_to_pass_up_food = True
+                            if len(self.rs[i].information_rcvd_low_food) is 0:
+                                self.rs[i].new_info_rcvd_low_food = False
+                                break
+                        else:
+                            break
+                        #print("Responder %d activated information to pass on - remaining information = %d" % (self.rs[i].id, len(self.rs[i].information_rcvd_low)))
+
+
+            # process information for sending to lower level ties
+            if self.rs[i].new_info_rcvd_high_shelter is True:
+                for j in range(len(self.rs[i].information_rcvd_high_shelter)):
+                    if self.rs[i].information_rcvd_high_shelter[j].shelter is True and self.rs[i].c == 0\
+                            and self.__check_in_circle(self.rs[i].deploy_range, self.rs[i].information_rcvd_high_shelter[j].position)\
+                            and self.rs[i].r_shelter > 10:
+                        self.rs[i].r_shelter -= 10
+                        self.rs[i].helped_list_shelter.append(self.rs[i].information_rcvd_high_shelter[j])
+                        print("HELP SHELTER: me_id %d --- civ_id %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_shelter[j].source))
+                        self.help_shelter += 1
+                        tmp_list_helped_shelter.append(j)
+                        self.helped_shelter.append(self.rs[i].information_rcvd_high[j].source)
+
+                    elif self.rs[i].information_rcvd_high_shelter[j].shelter is True and self.rs[i].c == 0 and self.rs[i].level < 3\
+                            and self.__check_network(self.rs[i].deploy_network, self.rs[i].information_rcvd_high_shelter[j]):
+                        print("NETWORK HELP FOUND SHELTER: me_id %d ---- civ_id %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_shelter[j].source))
+                        self.rs[i].information_pass_down_shelter.append(self.rs[i].information_rcvd_high_shelter[j])
+                        self.rs[i].new_info_to_pass_down_shelter = True
+                        tmp_list_helped.append(j)
+                    else:
+                        print("#### NO HELP FOUND SHELTER: my_id %d ----- civ_id %d ---- cap %r %r %r" % (self.rs[i].id, self.rs[i].information_rcvd_high_shelter[j].source, self.rs[i].information_rcvd_high_shelter[j].shelter, self.rs[i].information_rcvd_high_shelter[j].medical, self.rs[i].information_rcvd_high_shelter[j].food))
+
+            if self.rs[i].new_info_rcvd_high_medical is True:
+                for j in range(len(self.rs[i].information_rcvd_high_medical)):
+                    if self.rs[i].information_rcvd_high_medical[j].medical is True and self.rs[i].c == 1\
+                            and self.__check_in_circle(self.rs[i].deploy_range, self.rs[i].information_rcvd_high_medical[j].position)\
+                            and self.rs[i].r_medical > 10:
+                        self.rs[i].r_medical -= 10
+                        self.rs[i].helped_list_medical.append(self.rs[i].information_rcvd_high_medical[j])
+                        print("HELP MEDICAL: me_id %d --- civ_id %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_medical[j].source))
+                        tmp_list_helped_medical.append(j)
+                        self.help_medical += 1
+                        self.helped_medical.append(self.rs[i].information_rcvd_high_medical[j].source)
+
+                    elif self.rs[i].information_rcvd_high_medical[j].medical is True and self.rs[i].c == 1 and self.rs[i].level < 3\
+                            and self.__check_network(self.rs[i].deploy_network, self.rs[i].information_rcvd_high_medical[j]):
+                        print("NETWORK HELP FOUND MEDICAL: me_id %d ---- civ_id %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_medical[j].source))
+                        self.rs[i].information_pass_down_medical.append(self.rs[i].information_rcvd_high_medical[j])
+                        self.rs[i].new_info_to_pass_down_medical = True
+                        tmp_list_helped_medical.append(j)
+                    else:
+                        print("#### NO HELP FOUND MEDICAL: my_id %d ----- civ_id %d ---- cap %r %r %r" % (self.rs[i].id, self.rs[i].information_rcvd_high_medical[j].source, self.rs[i].information_rcvd_high_medical[j].shelter, self.rs[i].information_rcvd_high_medical[j].medical, self.rs[i].information_rcvd_high_medical[j].food))
+
+            if self.rs[i].new_info_rcvd_high_food is True:
+                for j in range(len(self.rs[i].information_rcvd_high_food)):
+                    if self.rs[i].information_rcvd_high_food[j].food is True and self.rs[i].c == 2\
+                            and self.__check_in_circle(self.rs[i].deploy_range, self.rs[i].information_rcvd_high_food[j].position)\
+                            and self.rs[i].r_food > 10:
+                        self.rs[i].r_food -= 10
+                        self.rs[i].helped_list.append(self.rs[i].information_rcvd_high_food[j])
+                        print("HELP FOOD: me_id %d --- civ_id %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_food[j].source))
+                        tmp_list_helped_food.append(j)
+                        self.help_food += 1
+                        self.helped_food.append(self.rs[i].information_rcvd_high_food[j].source)
+
+                    elif self.rs[i].information_rcvd_high_food[j].food is True and self.rs[i].c == 2 and self.rs[i].level < 3\
+                            and self.__check_network(self.rs[i].deploy_network, self.rs[i].information_rcvd_high_food[j]):
+                        print("NETWORK HELP FOUND FOOD: me_id %d ---- civ_id %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_food[j].source))
+                        self.rs[i].information_pass_down_food.append(self.rs[i].information_rcvd_high_food[j])
+                        self.rs[i].new_info_to_pass_down_food = True
+                        tmp_list_helped_food.append(j)
+                    else:
+                        print("#### NO HELP FOUND FOOD: my_id %d ----- civ_id %d ---- cap %r %r %r" % (self.rs[i].id, self.rs[i].information_rcvd_high_food[j].source, self.rs[i].information_rcvd_high_food[j].shelter, self.rs[i].information_rcvd_high_food[j].medical, self.rs[i].information_rcvd_high_food[j].food))
+
+            if self.rs[i].id == 0:
+                if len(tmp_list_helped_shelter) > 0:
+                    for j in xrange(len(self.rs[i].information_rcvd_low_shelter), -1, -1):
+                        if j in tmp_list_helped_shelter:
+                            self.rs[i].information_rcvd_low_shelter.pop(j)
+                if len(self.rs[i].information_rcvd_low_shelter) == 0:
+                    #print("NOTHING TO PROCESS: my_id %d" % self.rs[i].id)
+                    self.rs[i].new_info_rcvd_low_shelter = False
+                else:
+                    for j in range(len(self.rs[i].information_rcvd_low_shelter)):
+                        print("@ %d - no help for %d - Pos: %d , %d" % (self.rs[i].id, self.rs[i].information_rcvd_low_shelter[j].source, self.rs[i].information_rcvd_low_shelter[j].position.x, self.rs[i].information_rcvd_low_shelter[j].position.y))
+
+                if len(tmp_list_helped_medical) > 0:
+                    for j in xrange(len(self.rs[i].information_rcvd_low_medical), -1, -1):
+                        if j in tmp_list_helped_medical:
+                            self.rs[i].information_rcvd_low_medical.pop(j)
+                if len(self.rs[i].information_rcvd_low_medical) == 0:
+                    #print("NOTHING TO PROCESS: my_id %d" % self.rs[i].id)
+                    self.rs[i].new_info_rcvd_low_medical = False
+                else:
+                    for j in range(len(self.rs[i].information_rcvd_low_medical)):
+                        print("@ %d - no help for %d - Pos: %d , %d" % (self.rs[i].id, self.rs[i].information_rcvd_low_medical[j].source, self.rs[i].information_rcvd_low_medical[j].position.x, self.rs[i].information_rcvd_low_medical[j].position.y))
+
+                if len(tmp_list_helped_food) > 0:
+                    for j in xrange(len(self.rs[i].information_rcvd_low_food), -1, -1):
+                        if j in tmp_list_helped_food:
+                            self.rs[i].information_rcvd_low_food.pop(j)
+                if len(self.rs[i].information_rcvd_low_food) == 0:
+                    #print("NOTHING TO PROCESS: my_id %d" % self.rs[i].id)
+                    self.rs[i].new_info_rcvd_low_food = False
+                else:
+                    for j in range(len(self.rs[i].information_rcvd_low_food)):
+                        print("@ %d - no help for %d - Pos: %d , %d" % (self.rs[i].id, self.rs[i].information_rcvd_low_food[j].source, self.rs[i].information_rcvd_low_food[j].position.x, self.rs[i].information_rcvd_low_food[j].position.y))
+            else:
+                if len(tmp_list_helped_shelter) > 0:
+                    for j in xrange(len(self.rs[i].information_rcvd_high_shelter), -1, -1):
+                        if j in tmp_list_helped_shelter:
+                            self.rs[i].information_rcvd_high_shelter.pop(j)
+                if len(self.rs[i].information_rcvd_high_shelter) == 0:
+                    #print("NOTHING TO PROCESS: my_id %d" % self.rs[i].id)
+                    self.rs[i].new_info_rcvd_high_shelter = False
+                else:
+                    for j in range(len(self.rs[i].information_rcvd_high_shelter)):
+                        pass
+                        print("@ %d - no help for %d - Pos: %d , %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_shelter[j].source, self.rs[i].information_rcvd_high_shelter[j].position.x, self.rs[i].information_rcvd_high_shelter[j].position.y))
+
+                if len(tmp_list_helped_medical) > 0:
+                    for j in xrange(len(self.rs[i].information_rcvd_high_medical), -1, -1):
+                        if j in tmp_list_helped_medical:
+                            self.rs[i].information_rcvd_high_medical.pop(j)
+                if len(self.rs[i].information_rcvd_high_medical) == 0:
+                    #print("NOTHING TO PROCESS: my_id %d" % self.rs[i].id)
+                    self.rs[i].new_info_rcvd_high_medical = False
+                else:
+                    for j in range(len(self.rs[i].information_rcvd_high_medical)):
+                        pass
+                        print("@ %d - no help for %d - Pos: %d , %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_medical[j].source, self.rs[i].information_rcvd_high_medical[j].position.x, self.rs[i].information_rcvd_high_medical[j].position.y))
+
+                if len(tmp_list_helped_food) > 0:
+                    for j in xrange(len(self.rs[i].information_rcvd_high_food), -1, -1):
+                        if j in tmp_list_helped_food:
+                            self.rs[i].information_rcvd_high_food.pop(j)
+                if len(self.rs[i].information_rcvd_high_food) == 0:
+                    #print("NOTHING TO PROCESS: my_id %d" % self.rs[i].id)
+                    self.rs[i].new_info_rcvd_high_food = False
+                else:
+                    for j in range(len(self.rs[i].information_rcvd_high_food)):
+                        pass
+                        print("@ %d - no help for %d - Pos: %d , %d" % (self.rs[i].id, self.rs[i].information_rcvd_high_food[j].source, self.rs[i].information_rcvd_high_food[j].position.x, self.rs[i].information_rcvd_high_food[j].position.y))
+
+    def send_information_to_ties(self):
+        """
+        Sending information to ties within network
+
+        """
+
+        # Loop through all responding agents and send information if available
+        for i in xrange(len(self.rs)-1, -1, -1):
+
+            if self.rs[i].id == 0:
+                if self.rs[i].new_info_to_pass_down_shelter is True:
+                    for j in range(len(self.rs[i].information_pass_down_shelter)):
+                        responder_shelter = self.__find_responder_to_help(self.rs[i].deploy_network, self.rs[i].information_pass_down_shelter[j], "shelter")
+                        if self.__send_information(i, responder_shelter, self.rs[i].information_pass_down_shelter[j], "shelter"):
+                            pass
+                if self.rs[i].new_info_to_pass_down_medical is True:
+                    for j in range(len(self.rs[i].information_pass_down_medical)):
+                        responder_medical = self.__find_responder_to_help(self.rs[i].deploy_network, self.rs[i].information_pass_down_medical[j], "medical")
+                        if self.__send_information(i, responder_medical, self.rs[i].information_pass_down_medical[j], "medical"):
+                            pass
+                if self.rs[i].new_info_to_pass_down_food is True:
+                    for j in range(len(self.rs[i].information_pass_down_food)):
+                        responder_food = self.__find_responder_to_help(self.rs[i].deploy_network, self.rs[i].information_pass_down_food[j], "food")
+                        if self.__send_information(i, responder_food, self.rs[i].information_pass_down_food[j], "food"):
+                            pass
+
+                self.rs[i].information_pass_down_shelter = []
+                self.rs[i].information_pass_down_medical = []
+                self.rs[i].information_pass_down_food = []
+
+            else:
+                # First part is responsible for passing information from lower levels to higher levels.
+                if self.rs[i].new_info_to_pass_up_shelter is True:
+                    for j in range(len(self.rs[i].ties_up)):
+                        self.rs[self.rs[i].ties_up[j]].information_rcvd_low_shelter.extend(self.rs[i].information_pass_up_shelter)
+                        self.rs[self.rs[i].ties_up[j]].new_info_rcvd_low_shelter = True
+                        self.rs[i].new_info_to_pass_up_shelter = False
+                        #print("UP: Responder %d sent information to Responder %d" % (self.rs[i].id, self.rs[self.rs[i].ties_up[j]].id))
+                    self.rs[i].information_pass_up_shelter = []
+                if self.rs[i].new_info_to_pass_up_medical is True:
+                    for j in range(len(self.rs[i].ties_up)):
+                        self.rs[self.rs[i].ties_up[j]].information_rcvd_low_medical.extend(self.rs[i].information_pass_up_medical)
+                        self.rs[self.rs[i].ties_up[j]].new_info_rcvd_low_meidcal = True
+                        self.rs[i].new_info_to_pass_up_medical = False
+                        #print("UP: Responder %d sent information to Responder %d" % (self.rs[i].id, self.rs[self.rs[i].ties_up[j]].id))
+                    self.rs[i].information_pass_up_medical = []
+                if self.rs[i].new_info_to_pass_up_food is True:
+                    for j in range(len(self.rs[i].ties_up)):
+                        self.rs[self.rs[i].ties_up[j]].information_rcvd_low_food.extend(self.rs[i].information_pass_up_food)
+                        self.rs[self.rs[i].ties_up[j]].new_info_rcvd_low_food = True
+                        self.rs[i].new_info_to_pass_up_food = False
+                        #print("UP: Responder %d sent information to Responder %d" % (self.rs[i].id, self.rs[self.rs[i].ties_up[j]].id))
+                    self.rs[i].information_pass_up_food = []
+
+                # Second part is responsible for passing information to lower levels
+                if self.rs[i].new_info_to_pass_down_shelter is True:
+                    for j in range(len(self.rs[i].information_pass_down_shelter)):
+                        responder_shelter = self.__find_responder_to_help(self.rs[i].deploy_network, self.rs[i].information_pass_down_shelter[j], "shelter")
+                        if self.__send_information(i, responder_shelter, self.rs[i].information_pass_down_shelter[j], "shelter"):
+                            pass
+
+                if self.rs[i].new_info_to_pass_down_medical is True:
+                    for j in range(len(self.rs[i].information_pass_down_medical)):
+                        responder_medical = self.__find_responder_to_help(self.rs[i].deploy_network, self.rs[i].information_pass_down_medical[j], "medical")
+                        if self.__send_information(i, responder_medical, self.rs[i].information_pass_down_medical[j], "medical"):
+                            pass
+
+                if self.rs[i].new_info_to_pass_down_food is True:
+                    for j in range(len(self.rs[i].information_pass_down_food)):
+                        responder_food = self.__find_responder_to_help(self.rs[i].deploy_network, self.rs[i].information_pass_down_food[j], "food")
+                        if self.__send_information(i, responder_food, self.rs[i].information_pass_down_food[j], "food"):
+                            pass
+
+                if self.rs[i].new_info_to_pass_down_logistic is True:
+                    for j in range(len(self.rs[i].information_pass_down_logistic)):
+                        responder_logistics = self.__find_responder_to_help(self.rs[i].deploy_network, self.rs[i].information_pass_down[j], "logistics")
+                        if self.__send_information(i, responder_logistics, self.rs[i].information_pass_down_logistic[j], "logistic"):
+                            pass
+
+                self.rs[i].information_pass_down_shelter = []
+                self.rs[i].information_pass_down_medical = []
+                self.rs[i].information_pass_down_food = []
+                self.rs[i].information_pass_down_logistic = []

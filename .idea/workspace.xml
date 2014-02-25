@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e91d0295-b63f-4c55-964a-fdeaadbe1d89" name="Default" comment="" />
+    <list default="true" id="e91d0295-b63f-4c55-964a-fdeaadbe1d89" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Response" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/old_stuff.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agents.py" afterPath="$PROJECT_DIR$/Agents.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crisis.py" afterPath="$PROJECT_DIR$/Crisis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CrisisComABM.iml" afterPath="$PROJECT_DIR$/.idea/CrisisComABM.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Response.py" afterPath="$PROJECT_DIR$/Response.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes.py" afterPath="$PROJECT_DIR$/classes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes" afterPath="$PROJECT_DIR$/notes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing.py" afterPath="$PROJECT_DIR$/testing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="CrisisComABM.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,14 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Crisis.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <file leaf-file-name="classes.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="24" selection-start="2925" selection-end="2925" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1020">
-              <folding>
-                <marker date="1391355945000" expanded="true" signature="2504:2925" placeholder="..." />
-                <marker date="1391355945000" expanded="true" signature="2683:2925" placeholder="..." />
-              </folding>
+            <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -38,13 +49,8 @@
       <file leaf-file-name="Agents.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="42" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.0" vertical-offset="1374" max-vertical-offset="1785">
-              <folding>
-                <marker date="1391364849000" expanded="true" signature="37:1437" placeholder="..." />
-                <marker date="1391364849000" expanded="true" signature="1271:1437" placeholder="..." />
-                <marker date="1391364849000" expanded="true" signature="1280:1338" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1391364849000" expanded="true" signature="1460:1834" placeholder="..." />
-              </folding>
+            <state line="86" column="31" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.0" vertical-offset="1239" max-vertical-offset="3120">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,9 +58,54 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="25" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.18844222" vertical-offset="1980" max-vertical-offset="3270">
+            <state line="155" column="24" selection-start="6764" selection-end="6764" vertical-scroll-proportion="0.11764706" vertical-offset="1872" max-vertical-offset="2715">
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#5709#6695#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testing.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="116" column="124" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0" vertical-offset="4548" max-vertical-offset="5550">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Crisis.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Crisis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="8" selection-start="2333" selection-end="2333" vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="1335">
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notes" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="89" column="51" selection-start="5420" selection-end="5420" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="6420">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Response.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Response.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="567" column="91" selection-start="29009" selection-end="29009" vertical-scroll-proportion="0.0" vertical-offset="8429" max-vertical-offset="9705">
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+                <marker date="1393362964000" expanded="true" signature="163:35057" placeholder="..." />
+                <marker date="1393362964000" expanded="true" signature="14822:16673" placeholder="..." />
+                <marker date="1393362964000" expanded="true" signature="16749:18367" placeholder="..." />
+                <marker date="1393362964000" expanded="true" signature="21384:35057" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -80,17 +131,19 @@
       <list>
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/testing.py" />
+        <option value="$PROJECT_DIR$/classes.py" />
         <option value="$PROJECT_DIR$/Crisis.py" />
+        <option value="$PROJECT_DIR$/notes" />
+        <option value="$PROJECT_DIR$/old_stuff.py" />
         <option value="$PROJECT_DIR$/Agents.py" />
+        <option value="$PROJECT_DIR$/Response.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="22" />
-    <option name="width" value="1260" />
-    <option name="height" value="767" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -122,7 +175,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -133,29 +186,7 @@
       <autoscrollFromSource />
       <sortByType ProjectPane="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrisisComABM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrisisComABM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrisisComABM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
@@ -167,10 +198,10 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="100" />
-    <property name="options.lastSelected" value="terminal" />
+    <property name="options.lastSelected" value="preferences.fileTypes" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/classes.py" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="105" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="900" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="900" />
@@ -178,16 +209,17 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="102" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FullScreen" value="false" />
+    <property name="FullScreen" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <PyConsoleSettings>
+      <console-settings module-name="CrisisComABM" is-module-sdk="true">
         <option name="myUseModuleSdk" value="true" />
         <option name="myModuleName" value="CrisisComABM" />
-      </PyConsoleSettings>
+      </console-settings>
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -205,7 +237,9 @@
       <module name="CrisisComABM" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -222,6 +256,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CrisisComABM" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Response" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CrisisComABM" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Response.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -348,14 +400,16 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
       <item index="1" class="java.lang.String" itemvalue="Python.testing" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Response" />
     </list>
     <recent_temporary>
-      <list size="2">
+      <list size="3">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testing" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Response" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testing" />
       </list>
     </recent_temporary>
   </component>
@@ -383,6 +437,23 @@
       <created>1384725092552</created>
       <updated>1384725092552</updated>
     </task>
+    <task id="LOCAL-00001" summary="class collection">
+      <created>1392050872456</created>
+      <updated>1392050872456</updated>
+    </task>
+    <task id="LOCAL-00002" summary="editing class Responder: location">
+      <created>1392050907369</created>
+      <updated>1392050907369</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add functionality for responder agent">
+      <created>1392050931625</created>
+      <updated>1392050931625</updated>
+    </task>
+    <task id="LOCAL-00004" summary="changed class structure for response networks">
+      <created>1393103085677</created>
+      <updated>1393103085677</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -406,27 +477,34 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="22" width="1260" height="767" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32697946" sideWeight="0.49960285" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3101093" sideWeight="0.49960285" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3260274" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14874697" sideWeight="0.6764253" order="0" side_tool="false" content_ui="combo" x="482" y="76" width="315" height="665" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32357472" sideWeight="0.5004042" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32357472" sideWeight="0.4995958" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14874697" sideWeight="0.67697066" order="0" side_tool="false" content_ui="combo" x="482" y="76" width="315" height="665" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3973607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983023" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43424657" sideWeight="0.50119144" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6931507" sideWeight="0.4988086" order="2" side_tool="false" content_ui="tabs" x="0" y="22" width="1280" height="774" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739726" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.398827" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -435,35 +513,263 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="class collection" />
+    <MESSAGE value="editing class Responder: location" />
+    <MESSAGE value="add functionality for responder agent" />
+    <MESSAGE value="changed class structure for response networks" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed class structure for response networks" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="6" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Crisis.py">
+    <entry file="file://$PROJECT_DIR$/testing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="30" selection-start="2788" selection-end="2788" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1020">
+        <state line="29" column="40" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5610">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="195">
           <folding>
-            <marker date="1391355945000" expanded="true" signature="2504:2925" placeholder="..." />
-            <marker date="1391355945000" expanded="true" signature="2683:2925" placeholder="..." />
+            <element signature="e#0#20#0" expanded="true" />
+            <marker date="1393362964000" expanded="true" signature="163:35057" placeholder="..." />
+            <marker date="1393362964000" expanded="true" signature="14822:16673" placeholder="..." />
+            <marker date="1393362964000" expanded="true" signature="16749:18367" placeholder="..." />
+            <marker date="1393362964000" expanded="true" signature="21384:35057" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="34" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="29" selection-start="2540" selection-end="2540" vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="2265">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="13" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1665">
+        <state line="734" column="25" selection-start="48294" selection-end="48294" vertical-scroll-proportion="0.0" vertical-offset="11010" max-vertical-offset="13860">
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="17" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="840">
+        <state line="32" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="3570">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="34" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="27" selection-start="2184" selection-end="2184" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="54" selection-start="4720" selection-end="4720" vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="2070">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="631" column="18" selection-start="36261" selection-end="36261" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9705">
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="34" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="27" selection-start="2184" selection-end="2184" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="54" selection-start="4720" selection-end="4720" vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="2070">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="649" column="21" selection-start="36908" selection-end="36908" vertical-scroll-proportion="0.0" vertical-offset="9645" max-vertical-offset="9705">
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="4" selection-start="1744" selection-end="1744" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="18" selection-start="102" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="42" selection-start="2646" selection-end="2646" vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="1980">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="280" column="38" selection-start="14769" selection-end="14769" vertical-scroll-proportion="0.0" vertical-offset="3705" max-vertical-offset="8685">
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="19" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="4" selection-start="1744" selection-end="1744" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="18" selection-start="102" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="22" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="338" column="43" selection-start="17692" selection-end="17692" vertical-scroll-proportion="0.0" vertical-offset="5340" max-vertical-offset="7725">
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="24" selection-start="2925" selection-end="2925" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="17" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="20" selection-start="2578" selection-end="2578" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="7650">
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="24" selection-start="2925" selection-end="2925" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="20" selection-start="3992" selection-end="3992" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="24" selection-start="1362" selection-end="1484" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="4140">
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="17" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="840" />
       </provider>
     </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/random.py">
@@ -474,12 +780,7 @@
     <entry file="file://$PROJECT_DIR$/Agents.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding>
-            <marker date="1391364849000" expanded="true" signature="37:1437" placeholder="..." />
-            <marker date="1391364849000" expanded="true" signature="1271:1437" placeholder="..." />
-            <marker date="1391364849000" expanded="true" signature="1280:1338" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1391364849000" expanded="true" signature="1460:1834" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -487,14 +788,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="28" selection-start="1561" selection-end="1561" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1380">
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="637" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.txt">
@@ -502,62 +799,99 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105" />
       </provider>
     </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="881" column="0" selection-start="31573" selection-end="31573" vertical-scroll-proportion="0.027431421" vertical-offset="13099" max-vertical-offset="13545" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/networkx/classes/graph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="366" column="13" selection-start="10707" selection-end="10707" vertical-scroll-proportion="0.1127451" vertical-offset="5399" max-vertical-offset="27285" />
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/596071422/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5022" column="4" selection-start="172049" selection-end="172049" vertical-scroll-proportion="0.33279485" vertical-offset="75124" max-vertical-offset="76485" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="31" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0729927" vertical-offset="0" max-vertical-offset="411">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="643" selection-end="643" vertical-scroll-proportion="0.46835443" vertical-offset="25" max-vertical-offset="420" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Response">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="430" />
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="881" column="0" selection-start="31573" selection-end="31573" vertical-scroll-proportion="3.8846154" vertical-offset="11292" max-vertical-offset="13545" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_stuff.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="75" selection-start="12366" selection-end="12499" vertical-scroll-proportion="0.0" vertical-offset="2281" max-vertical-offset="5115">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crisis.py">
+    <entry file="file://$PROJECT_DIR$/classes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="24" selection-start="2925" selection-end="2925" vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="1020">
-          <folding>
-            <marker date="1391355945000" expanded="true" signature="2504:2925" placeholder="..." />
-            <marker date="1391355945000" expanded="true" signature="2683:2925" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+        <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Agents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="42" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.0" vertical-offset="879" max-vertical-offset="1785">
+        <state line="86" column="31" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.0" vertical-offset="1239" max-vertical-offset="3120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="124" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0" vertical-offset="2625" max-vertical-offset="5550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crisis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="8" selection-start="2333" selection-end="2333" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1335">
           <folding>
-            <marker date="1391364849000" expanded="true" signature="37:1437" placeholder="..." />
-            <marker date="1391364849000" expanded="true" signature="1271:1437" placeholder="..." />
-            <marker date="1391364849000" expanded="true" signature="1280:1338" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1391364849000" expanded="true" signature="1460:1834" placeholder="..." />
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="51" selection-start="5420" selection-end="5420" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="6420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="567" column="91" selection-start="29009" selection-end="29009" vertical-scroll-proportion="0.0" vertical-offset="8429" max-vertical-offset="9705">
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <marker date="1393362964000" expanded="true" signature="163:35057" placeholder="..." />
+            <marker date="1393362964000" expanded="true" signature="14822:16673" placeholder="..." />
+            <marker date="1393362964000" expanded="true" signature="16749:18367" placeholder="..." />
+            <marker date="1393362964000" expanded="true" signature="21384:35057" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="25" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.18844222" vertical-offset="1980" max-vertical-offset="3270">
+        <state line="155" column="24" selection-start="6764" selection-end="6764" vertical-scroll-proportion="0.11764706" vertical-offset="1872" max-vertical-offset="2715">
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5709#6695#0" expanded="false" />
           </folding>
         </state>
       </provider>
